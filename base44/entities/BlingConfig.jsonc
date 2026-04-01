@@ -1,0 +1,31 @@
+{
+  "name": "BlingConfig",
+  "type": "object",
+  "properties": {
+    "mode": {
+      "type": "string",
+      "enum": ["fiscal_apenas", "erp_paralelo"],
+      "default": "fiscal_apenas",
+      "description": "fiscal_apenas = só emite NF-e; erp_paralelo = sync completo"
+    },
+    "auto_export_orders": { "type": "boolean", "default": false },
+    "export_status_trigger": {
+      "type": "string",
+      "enum": ["confirmado", "enviado"],
+      "default": "confirmado"
+    },
+    "nfe_auto_import": { "type": "boolean", "default": true },
+    "auto_export_products": { "type": "boolean", "default": false },
+    "auto_sync_stock": { "type": "boolean", "default": false },
+    "auto_export_clients": { "type": "boolean", "default": false },
+    "process_stock_webhooks": { "type": "boolean", "default": false },
+    "default_store_id": { "type": "string" },
+    "default_deposit_id": { "type": "string" },
+    "bling_account_name": { "type": "string" },
+    "active": { "type": "boolean", "default": false },
+    "connected_at": { "type": "string", "format": "date-time" },
+    "last_sync_at": { "type": "string", "format": "date-time" },
+    "company_id": { "type": "string" }
+  },
+  "required": ["company_id"]
+}

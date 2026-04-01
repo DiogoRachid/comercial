@@ -1,0 +1,39 @@
+{
+  "name": "SalesChannel",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string", "description": "Nome amigável do canal" },
+    "platform": {
+      "type": "string",
+      "enum": ["mercado_livre", "shopee", "amazon", "woocommerce", "shopify", "manual"]
+    },
+    "price_rule_type": {
+      "type": "string",
+      "enum": ["markup_percent", "fixed_addition", "fixed_price"],
+      "default": "markup_percent"
+    },
+    "price_rule_value": { "type": "number", "default": 0 },
+    "commission_percent": { "type": "number", "default": 0, "description": "Comissão do marketplace %" },
+    "active": { "type": "boolean", "default": true },
+    "last_sync_at": { "type": "string", "format": "date-time" },
+    "sync_status": {
+      "type": "string",
+      "enum": ["ok", "atencao", "erro"],
+      "default": "ok"
+    },
+    "sync_log": { "type": "string" },
+    "credentials": {
+      "type": "object",
+      "description": "Credenciais do canal (access_token, etc)",
+      "properties": {
+        "access_token": { "type": "string" },
+        "refresh_token": { "type": "string" },
+        "seller_id": { "type": "string" },
+        "client_id": { "type": "string" },
+        "shop_id": { "type": "string" }
+      }
+    },
+    "company_id": { "type": "string" }
+  },
+  "required": ["name", "platform"]
+}

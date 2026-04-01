@@ -1,0 +1,59 @@
+{
+  "name": "Order",
+  "type": "object",
+  "properties": {
+    "external_id": { "type": "string", "description": "ID do pedido no marketplace" },
+    "canal": {
+      "type": "string",
+      "enum": ["mercado_livre", "shopee", "amazon", "woocommerce", "shopify", "manual"],
+      "description": "Canal de origem"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["novo", "confirmado", "separando", "enviado", "entregue", "cancelado", "devolvido"],
+      "default": "novo"
+    },
+    "buyer_name": { "type": "string" },
+    "buyer_email": { "type": "string" },
+    "buyer_document": { "type": "string", "description": "CPF ou CNPJ" },
+    "buyer_phone": { "type": "string" },
+    "shipping_street": { "type": "string" },
+    "shipping_number": { "type": "string" },
+    "shipping_complement": { "type": "string" },
+    "shipping_neighborhood": { "type": "string" },
+    "shipping_city": { "type": "string" },
+    "shipping_state": { "type": "string" },
+    "shipping_zip": { "type": "string" },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "product_id": { "type": "string" },
+          "product_name": { "type": "string" },
+          "sku": { "type": "string" },
+          "quantity": { "type": "number" },
+          "unit_price": { "type": "number" },
+          "total_price": { "type": "number" }
+        }
+      }
+    },
+    "subtotal": { "type": "number" },
+    "shipping_cost": { "type": "number", "default": 0 },
+    "discount": { "type": "number", "default": 0 },
+    "total": { "type": "number" },
+    "tracking_code": { "type": "string" },
+    "shipping_carrier": { "type": "string" },
+    "notes": { "type": "string" },
+    "bling_order_id": { "type": "string" },
+    "nfe_number": { "type": "string" },
+    "nfe_key": { "type": "string" },
+    "nfe_status": {
+      "type": "string",
+      "enum": ["nao_emitida", "emitida", "cancelada"],
+      "default": "nao_emitida"
+    },
+    "company_id": { "type": "string" }
+  },
+  "required": ["canal", "total"]
+}

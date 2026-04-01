@@ -1,0 +1,28 @@
+{
+  "name": "BlingSyncRecord",
+  "type": "object",
+  "properties": {
+    "entity_type": {
+      "type": "string",
+      "enum": ["pedido", "produto", "cliente", "estoque", "nfe", "pedido_compra"]
+    },
+    "entity_id": { "type": "string", "description": "ID local no OmniCommerce" },
+    "bling_id": { "type": "string", "description": "ID do registro no Bling" },
+    "direction": {
+      "type": "string",
+      "enum": ["exportado", "importado"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pendente", "sucesso", "erro", "ignorado"],
+      "default": "pendente"
+    },
+    "last_attempt_at": { "type": "string", "format": "date-time" },
+    "attempts": { "type": "number", "default": 0 },
+    "error_message": { "type": "string" },
+    "request_payload": { "type": "object" },
+    "response_payload": { "type": "object" },
+    "company_id": { "type": "string" }
+  },
+  "required": ["entity_type", "direction"]
+}

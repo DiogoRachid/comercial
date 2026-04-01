@@ -1,0 +1,30 @@
+{
+  "name": "FiscalConfig",
+  "type": "object",
+  "properties": {
+    "api_provider": {
+      "type": "string",
+      "enum": ["focus_nfe", "webmania", "nfeio", "plugnotas"],
+      "default": "focus_nfe"
+    },
+    "api_key": { "type": "string", "description": "Token da API fiscal" },
+    "environment": {
+      "type": "string",
+      "enum": ["homologacao", "producao"],
+      "default": "homologacao"
+    },
+    "serie_nfe": { "type": "string", "default": "1" },
+    "natureza_operacao": { "type": "string", "default": "Venda de mercadoria" },
+    "auto_emit_on_status": {
+      "type": "string",
+      "enum": ["confirmado", "enviado", "nunca"],
+      "default": "nunca"
+    },
+    "send_email_buyer": { "type": "boolean", "default": true },
+    "active": { "type": "boolean", "default": false },
+    "last_test_status": { "type": "string", "enum": ["ok", "erro"] },
+    "last_test_at": { "type": "string", "format": "date-time" },
+    "company_id": { "type": "string" }
+  },
+  "required": ["company_id"]
+}
