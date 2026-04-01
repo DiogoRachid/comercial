@@ -1,2 +1,3 @@
-const ComponentName = () => <div className="p-8"><h1>Página OK!</h1></div>;
-export default ComponentName;
+import React from 'react';
+const Stock = () => <div className="p-8"><h1>Estoque OK!</h1></div>;
+export default Stock;
